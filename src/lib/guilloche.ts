@@ -15,7 +15,8 @@ export function hash(str: string): number {
  */
 export function ribbon(seed: number, w: number, h: number, lines = 22): { a: string[]; b: string[] } {
   const u = (shift: number) => ((seed >>> shift) & 0xff) / 255
-  const waves = 9 + Math.round(u(0) * 5)
+  // Wave count scales with the drawing width so narrow ribbons keep open, fine-line lattices.
+  const waves = Math.max(3, Math.round((9 + u(0) * 5) * (w / 1440)))
   const f1 = (Math.PI * 2 * waves) / w
   const f2 = (Math.PI * 2 * (1.5 + u(8) * 1.5)) / w
   const ph0 = u(16) * Math.PI * 2

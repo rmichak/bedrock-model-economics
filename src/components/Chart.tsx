@@ -41,7 +41,7 @@ export function Chart({ rows, frontier, logX, onScale, valueId, hiddenNote }: Pr
   const narrow = W < 560
   const H = narrow ? 420 : 520
   const M = { l: narrow ? 38 : 48, r: narrow ? 12 : 24, t: 16, b: 44 }
-  const costs = rows.map((r) => r.cost).filter((c) => c > 0)
+  const costs = rows.map((r) => r.cost).filter((c) => c > 0 && Number.isFinite(c))
 
   const header = (
     <div className={css.head}>
@@ -124,7 +124,8 @@ export function Chart({ rows, frontier, logX, onScale, valueId, hiddenNote }: Pr
   const yTicks = [0, 10, 20, 30, 40, 50, 60]
   const xTicks: number[] = []
   if (logX) {
-    for (let v = xmin; v <= xmax * 1.0001; v *= 10) {
+    // Bounded: a decade per step, never more than 24 decades.
+    for (let v = xmin, i = 0; v <= xmax * 1.0001 && i < 24; v *= 10, i++) {
       xTicks.push(v)
       if (!narrow && v * 3 < xmax) xTicks.push(v * 3)
     }
@@ -148,7 +149,29 @@ export function Chart({ rows, frontier, logX, onScale, valueId, hiddenNote }: Pr
   const ann = { x: M.l + 10, y: M.t + 8, w: narrow ? 128 : 196, h: narrow ? 18 : 34 }
   type Box = { x: number; y: number; w: number; h: number }
   const hits = (a: Box, b: Box) => a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y
-  const dots = pts.map((p) => ({ id: p.r.id, x: p.x - p.rad - 2, y: p.y - p.rad - 2, w: p.rad * 2 + 4, h: p.rad * 2 + 4 }))
+  const dots = pts.map((p) => {
+    const pad = p.r.id === valueId ? 9 : 2
+    return { id: p.r.id, x: p.x - p.rad - pad, y: p.y - p.rad - pad, w: (p.rad + pad) * 2, h: (p.rad + pad) * 2 }
+  })
+  // The frontier line, sampled into small boxes, so labels avoid being struck through.
+  const line: Box[] = []
+  frontier.forEach((r, i) => {
+    if (!i) return
+    const a = byId.get(frontier[i - 1].id)!
+    const b = byId.get(r.id)!
+    const n = Math.max(1, Math.ceil(Math.hypot(b.x - a.x, b.y - a.y) / 6))
+    for (let k = 0; k <= n; k++) line.push({ x: a.x + ((b.x - a.x) * k) / n - 2, y: a.y + ((b.y - a.y) * k) / n - 2, w: 4, h: 4 })
+  })
+  // Pick the corner note that fits: the full sentence, a short one, or just "Better".
+  const annText = [
+    { t: 'Up and left: smarter, cheaper', sub: true, w: 196, h: 34 },
+    { t: 'Smarter, cheaper', sub: false, w: 128, h: 18 },
+    { t: 'Better', sub: false, w: 74, h: 18 },
+  ]
+    .filter((o) => !narrow || !o.sub)
+    .find((o) => !dots.some((d) => hits({ x: M.l + 10, y: M.t + 8, w: o.w, h: o.h }, d)))
+  if (annText) Object.assign(ann, { w: annText.w, h: annText.h })
+  else Object.assign(ann, { w: 0, h: 0 })
   const placed: Box[] = [ann]
   const labels = pts
     .filter((p) => p.r.frontier || p.r.kind === 'local')
@@ -174,7 +197,11 @@ export function Chart({ rows, frontier, logX, onScale, valueId, hiddenNote }: Pr
       spots.forEach(([x, y], i) => {
         const b = { x, y, w, h }
         if (x < M.l - 4 || x + w > W - M.r + 8 || y < M.t - 6 || y + h > H - M.b) return
-        const score = placed.filter((q) => hits(b, q)).length * 10 + dots.filter((q) => q.id !== p.r.id && hits(b, q)).length + i * 0.01
+        const score =
+          placed.filter((q) => hits(b, q)).length * 10 +
+          dots.filter((q) => q.id !== p.r.id && hits(b, q)).length * 2 +
+          (line.some((q) => hits(b, q)) ? 1.5 : 0) +
+          i * 0.01
         if (score < bestScore) {
           best = b
           bestScore = score
@@ -194,7 +221,15 @@ export function Chart({ rows, frontier, logX, onScale, valueId, hiddenNote }: Pr
       }
       const b: Box = best
       placed.push(b)
-      return { r: p.r, x: b.x, y: b.y, sub }
+      // A leader line when the label had to move away from its point.
+      const nx = Math.min(Math.max(p.x, b.x), b.x + b.w)
+      const ny = Math.min(Math.max(p.y, b.y + 2), b.y + b.h - 2)
+      const dist = Math.hypot(nx - p.x, ny - p.y)
+      const leader =
+        dist > p.rad + 12
+          ? `M${(p.x + ((nx - p.x) * (p.rad + 2)) / dist).toFixed(1)} ${(p.y + ((ny - p.y) * (p.rad + 2)) / dist).toFixed(1)} L${nx.toFixed(1)} ${ny.toFixed(1)}`
+          : null
+      return { r: p.r, x: b.x, y: b.y, sub, leader }
     })
 
   const show = (p: (typeof pts)[number]) => setTip({ row: p.r, x: p.x, y: p.y })
@@ -248,17 +283,19 @@ export function Chart({ rows, frontier, logX, onScale, valueId, hiddenNote }: Pr
               AA Intelligence Index
             </text>
 
-            <g className={css.ann}>
-              <path d={`M${ann.x + 22} ${ann.y + 26} L${ann.x + 4} ${ann.y + 8} M${ann.x + 4} ${ann.y + 16} L${ann.x + 4} ${ann.y + 8} L${ann.x + 12} ${ann.y + 8}`} />
-              <text x={ann.x + 26} y={ann.y + 14}>
-                {narrow ? 'Smarter, cheaper' : 'Up and left: smarter, cheaper'}
-              </text>
-              {!narrow && (
-                <text x={ann.x + 26} y={ann.y + 28} className={css.annSub}>
-                  where you want to land
+            {annText && (
+              <g className={css.ann}>
+                <path d={`M${ann.x + 18} ${ann.y + 18} L${ann.x + 4} ${ann.y + 4} M${ann.x + 4} ${ann.y + 12} L${ann.x + 4} ${ann.y + 4} L${ann.x + 12} ${ann.y + 4}`} />
+                <text x={ann.x + 24} y={ann.y + 14}>
+                  {annText.t}
                 </text>
-              )}
-            </g>
+                {annText.sub && (
+                  <text x={ann.x + 24} y={ann.y + 28} className={css.annSub}>
+                    where you want to land
+                  </text>
+                )}
+              </g>
+            )}
 
             <path d={frontierD} className={css.frontier} />
           </g>
@@ -301,6 +338,7 @@ export function Chart({ rows, frontier, logX, onScale, valueId, hiddenNote }: Pr
             })}
 
           <g aria-hidden="true">
+            {labels.map((l) => l.leader && <path key={'lead-' + l.r.id} d={l.leader} className={css.leader} />)}
             {labels.map((l) => (
               <g key={l.r.id} className={css.label} style={{ transform: `translate(${l.x}px, ${l.y}px)` }}>
                 <text x={3} y={11} className={css.labelName}>

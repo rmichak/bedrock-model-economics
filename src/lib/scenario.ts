@@ -5,6 +5,25 @@ const THINKS: Think[] = [1, 2, 4]
 const TIERS: Tier[] = [1, 0.5, 1.75]
 const LOCAL_FIELDS = ['hw', 'tput', 'pre', 'wact', 'widle'] as const
 
+/** Upper bounds keep a hand-edited link from overflowing the math to Infinity. */
+export const LIMITS = {
+  heads: 1e6,
+  count: 1e4,
+  tokens: 1e8,
+  hw: 1e9,
+  life: 600,
+  tput: 1e8,
+  pre: 1e8,
+  wact: 1e6,
+  widle: 1e6,
+  kwh: 100,
+  hours: 24,
+  ops: 1e9,
+} as const
+
+const cap = (v: number, max: number) => Math.min(max, Math.max(0, v))
+const isGroup = (id: string) => GROUPS.some((g) => g.id === id)
+
 export const DEFAULT_LOCAL_ID = 'local-gemma-4-31b'
 export const DEFAULT_PICK = 'claude-sonnet-5-5'
 
@@ -48,25 +67,27 @@ export function allTasks(s: Scenario): Task[] {
 /** Clamp user inputs the same way the prototype's readState did. */
 export function toCostInputs(s: Scenario): CostInputs {
   return {
-    heads: Object.fromEntries(GROUPS.map((g) => [g.id, Math.max(0, s.heads[g.id] ?? 0)])),
+    heads: Object.fromEntries(GROUPS.map((g) => [g.id, cap(s.heads[g.id] ?? 0, LIMITS.heads)])),
     adopt: s.adopt / 100,
-    days: Math.max(1, s.days),
+    days: Math.min(31, Math.max(1, s.days)),
     think: s.think,
     cache: s.cache,
     noCN: s.noCN,
     gov: s.gov,
     il: s.il && s.gov,
     tier: s.tier,
-    counts: s.counts,
-    hw: s.hw,
-    life: Math.max(1, s.life),
-    tput: Math.max(1, s.tput),
-    pre: Math.max(1, s.pre),
-    wact: s.wact,
-    widle: s.widle,
-    kwh: s.kwh,
+    counts: Object.fromEntries(
+      GROUPS.map((g) => [g.id, Object.fromEntries(Object.entries(s.counts[g.id] ?? {}).map(([t, v]) => [t, cap(v, LIMITS.count)]))]),
+    ),
+    hw: cap(s.hw, LIMITS.hw),
+    life: Math.min(LIMITS.life, Math.max(1, s.life)),
+    tput: Math.min(LIMITS.tput, Math.max(1, s.tput)),
+    pre: Math.min(LIMITS.pre, Math.max(1, s.pre)),
+    wact: cap(s.wact, LIMITS.wact),
+    widle: cap(s.widle, LIMITS.widle),
+    kwh: cap(s.kwh, LIMITS.kwh),
     hours: Math.min(24, Math.max(1, s.hours)),
-    ops: s.ops,
+    ops: cap(s.ops, LIMITS.ops),
   }
 }
 
@@ -115,9 +136,11 @@ export function reducer(s: Scenario, a: Action): Scenario {
     case 'patch':
       return { ...s, ...a.patch }
     case 'head':
-      return { ...s, heads: { ...s.heads, [a.group]: Math.max(0, a.value) } }
+      if (!isGroup(a.group)) return s
+      return { ...s, heads: { ...s.heads, [a.group]: cap(a.value, LIMITS.heads) } }
     case 'count':
-      return { ...s, counts: { ...s.counts, [a.group]: { ...s.counts[a.group], [a.task]: Math.max(0, a.value) } } }
+      if (!isGroup(a.group)) return s
+      return { ...s, counts: { ...s.counts, [a.group]: { ...s.counts[a.group], [a.task]: cap(a.value, LIMITS.count) } } }
     case 'noCN': {
       const next = { ...s, noCN: a.value }
       const ok = allowedLocals(a.value)
@@ -132,8 +155,8 @@ export function reducer(s: Scenario, a: Action): Scenario {
         name: a.name,
         size: 'Your task',
         calls: 1,
-        inPer: Math.max(0, Math.round(a.inPer)),
-        outPer: Math.max(0, Math.round(a.outPer)),
+        inPer: cap(Math.round(a.inPer), LIMITS.tokens),
+        outPer: cap(Math.round(a.outPer), LIMITS.tokens),
         cache: 0,
         custom: true,
       }
@@ -210,7 +233,7 @@ export function decodeScenario(query: string): Scenario {
     const parts = h.split('_').map((v) => num(v))
     GROUPS.forEach((g, i) => {
       const v = parts[i]
-      if (v != null && v >= 0) s.heads[g.id] = v
+      if (v != null && v >= 0) s.heads[g.id] = Math.min(v, LIMITS.heads)
     })
   }
   const a = num(p.get('a'))
@@ -230,7 +253,16 @@ export function decodeScenario(query: string): Scenario {
     const m = raw.match(/^(\d+)\.(\d+)\.(.+)$/)
     if (!m) return
     const id = 'u' + i
-    s.customTasks.push({ id, name: m[3].slice(0, 80), size: 'Your task', calls: 1, inPer: +m[1], outPer: +m[2], cache: 0, custom: true })
+    s.customTasks.push({
+      id,
+      name: m[3].slice(0, 80),
+      size: 'Your task',
+      calls: 1,
+      inPer: Math.min(+m[1], LIMITS.tokens),
+      outPer: Math.min(+m[2], LIMITS.tokens),
+      cache: 0,
+      custom: true,
+    })
     for (const g of GROUPS) s.counts[g.id][id] = 0
   })
   const k = p.get('k')
@@ -239,7 +271,8 @@ export function decodeScenario(query: string): Scenario {
     for (const entry of k.split('~')) {
       const [gid, tid, raw] = entry.split('-')
       const v = num(raw ?? null)
-      if (s.counts[gid] && taskIds.has(tid) && v != null && v >= 0) s.counts[gid][tid] = v
+      // Known groups only, as own keys: a crafted "__proto__" entry must never reach Object.prototype.
+      if (isGroup(gid) && Object.hasOwn(s.counts, gid) && taskIds.has(tid) && v != null && v >= 0) s.counts[gid][tid] = Math.min(v, LIMITS.count)
     }
   }
 
@@ -252,7 +285,7 @@ export function decodeScenario(query: string): Scenario {
   ]
   for (const [key, q] of pairs) {
     const v = num(p.get(q))
-    if (v != null && v >= 0) (s as unknown as Record<string, number>)[key] = v
+    if (v != null && v >= 0) (s as unknown as Record<string, number>)[key] = Math.min(v, LIMITS[key as keyof typeof LIMITS])
   }
   if (p.get('x') === 'lin') s.logX = false
   const m = p.get('m')

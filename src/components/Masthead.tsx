@@ -1,4 +1,4 @@
-import { Moon, RotateCcw, Sun } from 'lucide-react'
+import { Check, Link2, Moon, RotateCcw, Sun } from 'lucide-react'
 import { useMemo } from 'react'
 import { META } from '../lib/data'
 import { longDate } from '../lib/format'
@@ -22,11 +22,15 @@ interface Props {
   isDefault: boolean
   theme: 'light' | 'dark'
   onTheme: () => void
+  copied: boolean
+  /** Phones only: the stub's copy button sits below their first screen. */
+  onCopy: () => void
 }
 
-export function Masthead({ scenarioKey, onReset, isDefault, theme, onTheme }: Props) {
+export function Masthead({ scenarioKey, onReset, isDefault, theme, onTheme, copied, onCopy }: Props) {
   // Each scenario weaves its own security ribbon, like a numbered cheque.
   const weave = useMemo(() => ribbon(hash(scenarioKey || 'default'), 1440, 64), [scenarioKey])
+  const narrowWeave = useMemo(() => ribbon(hash(scenarioKey || 'default'), 480, 48, 9), [scenarioKey])
   return (
     <header className={css.band}>
       <div className={css.inner}>
@@ -46,11 +50,15 @@ export function Masthead({ scenarioKey, onReset, isDefault, theme, onTheme }: Pr
               <RotateCcw aria-hidden="true" />
               <span>Reset to defaults</span>
             </button>
+            <button type="button" className={css.copy} onClick={onCopy}>
+              {copied ? <Check aria-hidden="true" /> : <Link2 aria-hidden="true" />}
+              <span>{copied ? 'Copied' : 'Copy link'}</span>
+            </button>
           </div>
         </div>
       </div>
 
-      <svg className={css.ribbon} viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true">
+      <svg className={css.ribbon + ' ' + css.wide} viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true">
         <g className={css.strandA}>
           {weave.a.map((d, i) => (
             <path key={i} d={d} />
@@ -62,6 +70,19 @@ export function Masthead({ scenarioKey, onReset, isDefault, theme, onTheme }: Pr
           ))}
         </g>
         <line x1="0" x2="1440" y1="32" y2="32" className={css.rule} />
+      </svg>
+      <svg className={css.ribbon + ' ' + css.narrow} viewBox="0 0 480 48" preserveAspectRatio="none" aria-hidden="true">
+        <g className={css.strandA}>
+          {narrowWeave.a.map((d, i) => (
+            <path key={i} d={d} />
+          ))}
+        </g>
+        <g className={css.strandB}>
+          {narrowWeave.b.map((d, i) => (
+            <path key={i} d={d} />
+          ))}
+        </g>
+        <line x1="0" x2="480" y1="24" y2="24" className={css.rule} />
       </svg>
 
       <div className={css.inner}>

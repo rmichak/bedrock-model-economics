@@ -90,6 +90,30 @@
   outline-color: var(--hl);
 }
 
+/* Phone-only copy action; wider screens have it in the remittance stub */
+.copy {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 1px solid var(--hl);
+  background: var(--hl);
+  color: var(--hl-ink);
+  font: 700 13.5px/1 var(--f-body);
+  cursor: pointer;
+}
+
+.copy svg {
+  width: 16px;
+  height: 16px;
+}
+
+.narrow {
+  display: none;
+}
+
 /* Interlaced security ribbon along the masthead rule */
 .ribbon {
   display: block;
@@ -178,6 +202,18 @@
 
   .ribbon {
     height: 48px;
+  }
+
+  .wide {
+    display: none;
+  }
+
+  .narrow {
+    display: block;
+  }
+
+  .copy {
+    display: inline-flex;
   }
 
   .lead {

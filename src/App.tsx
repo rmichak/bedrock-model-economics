@@ -90,7 +90,15 @@ export default function App() {
       <a className={css.skip} href="#main">
         Skip to the calculator
       </a>
-      <Masthead scenarioKey={key} onReset={() => dispatch({ type: 'reset' })} isDefault={key === ''} theme={theme} onTheme={toggle} />
+      <Masthead
+        scenarioKey={key}
+        onReset={() => dispatch({ type: 'reset' })}
+        isDefault={key === ''}
+        theme={theme}
+        onTheme={toggle}
+        copied={copied}
+        onCopy={onCopy}
+      />
       <StickyBar visible={!stubVisible} v={v} copied={copied} onCopy={onCopy} />
 
       <main id="main" className={css.sheet}>

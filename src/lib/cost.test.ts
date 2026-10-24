@@ -151,6 +151,18 @@ describe('scenario URL', () => {
     expect(decodeScenario(encodeScenario(s))).toEqual(s)
   })
 
+  it('never writes a crafted __proto__ entry onto Object.prototype', () => {
+    decodeScenario('k=__proto__-chat-7~constructor-chat-7')
+    expect(({} as Record<string, unknown>).chat).toBeUndefined()
+  })
+
+  it('clamps huge link values so every cost stays finite', () => {
+    const s = decodeScenario('h=1e300_1e300_1e300_1e300&k=staff-agent-1e300&hw=1e300&op=1e300&u=99999999999.99999999999.Huge')
+    const c = compute({ models: MODELS, groups: GROUPS, tasks: allTasks(s) }, findLocal(s.localId), toCostInputs(s))
+    expect([...c.rows, ...c.hidden].every((r) => Number.isFinite(r.cost))).toBe(true)
+    expect(Number.isFinite(c.lc.cost)).toBe(true)
+  })
+
   it('ignores junk values', () => {
     const s = decodeScenario('a=abc&t=3&tr=9&l=nope&m=nope&k=staff-chat-x~zz-chat-1')
     expect(s).toEqual(defaultScenario())
