@@ -29,6 +29,8 @@ colors:
   ok-bg: "#e6f4ec"
   warn: "#8a4b00"
   warn-bg: "#fff4e0"
+  register-window: "#0b111d"
+  register-digit: "#f4f6fa"
 typography:
   display:
     fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
@@ -36,6 +38,18 @@ typography:
     fontWeight: 800
     lineHeight: 1.02
     letterSpacing: "-0.035em"
+  display-tablet:
+    fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "2.6rem"
+    fontWeight: 800
+    lineHeight: 1.02
+    letterSpacing: "-0.035em"
+  display-phone:
+    fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "2.05rem"
+    fontWeight: 800
+    lineHeight: 1.02
+    letterSpacing: "-0.03em"
   amount-due:
     fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
     fontSize: "clamp(2.5rem, 17cqi, 4rem)"
