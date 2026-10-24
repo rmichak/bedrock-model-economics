@@ -1,0 +1,147 @@
+.skip {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 30;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: var(--hl);
+  color: var(--hl-ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skip:focus {
+  top: 12px;
+}
+
+/* The statement sheet, pulled up out of the envelope band */
+.sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: -120px auto 0;
+  background: var(--paper);
+  border-radius: 6px;
+  box-shadow: var(--shadow-sheet);
+}
+
+/* Perforated tear line with punched notches at both edges */
+.perf {
+  position: relative;
+  height: 28px;
+}
+
+.perf::before {
+  content: '';
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  top: 50%;
+  border-top: 2px dashed var(--rule-strong);
+}
+
+.perf::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 0 50%, var(--desk) 9px, transparent 9.5px),
+    radial-gradient(circle at 100% 50%, var(--desk) 9px, transparent 9.5px);
+}
+
+.compare {
+  padding: 28px var(--sheet-pad) 36px;
+}
+
+.compareHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 40px;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.compareHead h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.compareHead p {
+  max-width: 70ch;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.compareGrid {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 0;
+  align-items: start;
+}
+
+.compareGrid > :first-child {
+  padding-right: 32px;
+  margin-right: 32px;
+  border-right: 1px solid var(--rule);
+}
+
+/* The chart rides alongside the taller controls so every change stays in view. */
+@media (min-width: 1001px) and (min-height: 760px) {
+  .compareGrid > :last-child {
+    position: sticky;
+    top: 76px;
+  }
+}
+
+.footer {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px var(--sheet-pad) 56px;
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.footer code {
+  font: 500 12px var(--f-data);
+}
+
+@media (max-width: 1000px) {
+  .compareGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .compareGrid > :last-child {
+    order: -1;
+    margin-bottom: 32px;
+  }
+
+  .compareGrid > :first-child {
+    padding-right: 0;
+    margin-right: 0;
+    border-right: 0;
+  }
+}
+
+@media (max-width: 1280px) {
+  .sheet {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --sheet-pad: 18px;
+  }
+
+  .sheet {
+    margin: -84px 8px 0;
+  }
+}

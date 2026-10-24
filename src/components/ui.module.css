@@ -1,0 +1,253 @@
+.field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.label {
+  font: 600 13px/1.3 var(--f-body);
+  color: var(--ink-2);
+  padding: 0;
+}
+
+.hint {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink-3);
+}
+
+/* Headcount stepper */
+.stepper {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) 32px;
+  align-items: stretch;
+  width: 118px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--paper);
+  overflow: hidden;
+  transition: border-color 160ms var(--ease-out), box-shadow 160ms var(--ease-out);
+}
+
+.stepper:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+.stepBtn {
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background-color 140ms var(--ease-out), color 140ms var(--ease-out);
+}
+
+.stepBtn:hover:not(:disabled) {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+
+.stepBtn:disabled {
+  color: var(--rule-strong);
+  cursor: not-allowed;
+}
+
+.stepBtn:focus-visible {
+  outline-offset: -2px;
+}
+
+.stepBtn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.stepField:global(.field) {
+  border: 0;
+  border-radius: 0;
+  min-height: 34px;
+  padding: 4px 2px;
+  text-align: center;
+  font-weight: 600;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Segmented radio options, like the rate-plan boxes on a bill */
+.segField {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.segField > legend {
+  margin-bottom: 6px;
+}
+
+.seg {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--paper);
+  padding: 2px;
+  gap: 2px;
+}
+
+.segOpt {
+  position: relative;
+  display: grid;
+  cursor: pointer;
+}
+
+.segOpt input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.segOpt span {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  min-height: 34px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font: 600 13px/1.15 var(--f-body);
+  color: var(--ink-2);
+  transition: background-color 160ms var(--ease-out), color 160ms var(--ease-out);
+}
+
+.segOpt small {
+  display: block;
+  font: 500 11px/1.2 var(--f-data);
+  color: inherit;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+.segOpt:hover span {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+
+.segOpt input:checked + span {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.segOpt input:focus-visible + span {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* Tick-box rows */
+.check {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.check[data-disabled] {
+  cursor: not-allowed;
+}
+
+.check[data-disabled] .checkLabel,
+.check[data-disabled] .checkDesc {
+  opacity: 0.55;
+}
+
+.checkLabel {
+  display: block;
+  font: 600 14px/1.35 var(--f-body);
+  color: var(--ink);
+}
+
+.checkDesc {
+  display: block;
+  margin-top: 2px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink-3);
+}
+
+/* Meter-register numerals */
+.roll {
+  display: inline-block;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.rollFace {
+  display: inline-flex;
+  align-items: flex-end;
+}
+
+.wheel {
+  display: inline-block;
+  height: 1.1em;
+  line-height: 1.1em;
+  overflow: hidden;
+  /* keep descender room so the strip never clips the next figure */
+  vertical-align: bottom;
+}
+
+.strip {
+  display: flex;
+  flex-direction: column;
+  transition: transform 700ms var(--ease-out);
+}
+
+.strip > span {
+  height: 1.1em;
+  line-height: 1.1em;
+  text-align: center;
+}
+
+/* Counter windows, as on a utility meter's register */
+.register .rollFace {
+  gap: 2px;
+  align-items: center;
+}
+
+.register .wheel {
+  height: 1.25em;
+  line-height: 1.25em;
+  padding: 0 0.08em;
+  border-radius: 3px;
+  /* a register window stays dark in both themes */
+  background: #0b111d;
+  color: #f4f6fa;
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.08),
+    inset 0 0.18em 0.2em -0.1em rgb(0 0 0 / 0.55),
+    inset 0 -0.18em 0.2em -0.1em rgb(0 0 0 / 0.55);
+}
+
+.register .strip > span {
+  height: 1.25em;
+  line-height: 1.25em;
+}
+
+.register .glyph {
+  height: 1.25em;
+  line-height: 1.25em;
+  padding: 0 0.02em;
+}
+
+.glyph {
+  display: inline-block;
+  height: 1.1em;
+  line-height: 1.1em;
+  /* tnum would widen commas and points to figure width */
+  font-variant-numeric: normal;
+  font-feature-settings: 'tnum' 0;
+}

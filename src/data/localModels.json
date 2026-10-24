@@ -1,0 +1,6 @@
+[
+  {"id":"local-gemma-4-31b","name":"Gemma 4 31B","origin":"US","idx":15,"hw":4500,"tput":300,"pre":6000,"wact":650,"widle":80,"setup":"1× 32 GB GPU workstation"},
+  {"id":"local-gpt-oss-120b","name":"gpt-oss-120b","origin":"US","idx":12,"hw":11000,"tput":900,"pre":10000,"wact":800,"widle":100,"setup":"1× 96 GB GPU workstation"},
+  {"id":"local-nemotron-3-super","name":"Nemotron 3 Super 120B","origin":"US","idx":13,"hw":11000,"tput":600,"pre":8000,"wact":800,"widle":100,"setup":"1× 96 GB GPU workstation"},
+  {"id":"local-qwen3-8-27b","name":"Qwen3.8 27B","origin":"China","idx":33.7,"hw":4500,"tput":350,"pre":6000,"wact":650,"widle":80,"setup":"1× 32 GB GPU workstation"}
+]

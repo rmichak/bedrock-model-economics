@@ -1,0 +1,12 @@
+[
+  {"id":"chat","name":"Quick question","size":"A short back-and-forth answer","calls":1,"inPer":2000,"outPer":500,"cache":0},
+  {"id":"email","name":"Draft or reply to an email","size":"Reads a thread, writes a reply","calls":1,"inPer":1500,"outPer":400,"cache":0},
+  {"id":"doc","name":"Summarize a long document","size":"About 25 pages","calls":1,"inPer":16000,"outPer":800,"cache":0},
+  {"id":"meeting","name":"Summarize a meeting","size":"1-hour transcript","calls":1,"inPer":14000,"outPer":1000,"cache":0},
+  {"id":"memo","name":"Write a memo or report section","size":"Two pages, three rounds of edits","calls":3,"inPer":4000,"outPer":1500,"cache":0.5},
+  {"id":"research","name":"Research over internal documents","size":"Search plus retrieved passages","calls":1,"inPer":12000,"outPer":1200,"cache":0},
+  {"id":"data","name":"Analyze a spreadsheet","size":"A few follow-up questions on one file","calls":4,"inPer":6000,"outPer":800,"cache":0.6},
+  {"id":"code","name":"Code help","size":"Explain, review or fix a file","calls":1,"inPer":10000,"outPer":1500,"cache":0},
+  {"id":"agent","name":"Agentic coding session","size":"About 40 agent steps on a codebase","calls":40,"inPer":45000,"outPer":1200,"cache":0.85},
+  {"id":"form","name":"Process a form or case record","size":"Extract fields from a 2-page form","calls":1,"inPer":3000,"outPer":400,"cache":0}
+]

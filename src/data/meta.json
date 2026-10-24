@@ -1,0 +1,13 @@
+{
+  "asOf": "2026-10-23",
+  "indexVersion": "Artificial Analysis Intelligence Index v4.3.2",
+  "sources": [
+    { "label": "Amazon Bedrock pricing", "url": "https://aws.amazon.com/bedrock/pricing/" },
+    { "label": "Bedrock model cards", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards-openai.html" },
+    { "label": "Bedrock models FedRAMP and DoD SRG status", "url": "https://aws.amazon.com/compliance/services-in-scope/FedRAMP/amazon-bedrock-models/" },
+    { "label": "Bedrock regional availability", "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-region-compatibility.html" },
+    { "label": "modelgrep leaderboard (AA index and speed)", "url": "https://modelgrep.com/leaderboard" },
+    { "label": "Artificial Analysis model comparisons", "url": "https://artificialanalysis.ai/models/comparisons/deepseek-v3-2-reasoning-vs-gpt-oss-120b" },
+    { "label": "Claude 5.5 pricing", "url": "https://www.eesel.ai/blog/claude-haiku-5-5-pricing" }
+  ]
+}

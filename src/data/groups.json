@@ -1,0 +1,74 @@
+[
+  {
+    "id": "staff",
+    "name": "General staff",
+    "hint": "Email, meetings, documents",
+    "headcount": 40,
+    "perDay": {
+      "chat": 12,
+      "email": 5,
+      "doc": 1,
+      "meeting": 0.5,
+      "memo": 0.5,
+      "research": 1,
+      "data": 0.5,
+      "code": 0,
+      "agent": 0,
+      "form": 0
+    }
+  },
+  {
+    "id": "analysts",
+    "name": "Analysts",
+    "hint": "Research, reports, data",
+    "headcount": 10,
+    "perDay": {
+      "chat": 15,
+      "email": 4,
+      "doc": 3,
+      "meeting": 1,
+      "memo": 2,
+      "research": 4,
+      "data": 3,
+      "code": 0.5,
+      "agent": 0,
+      "form": 0
+    }
+  },
+  {
+    "id": "devs",
+    "name": "Developers",
+    "hint": "Code help and coding agents",
+    "headcount": 10,
+    "perDay": {
+      "chat": 15,
+      "email": 2,
+      "doc": 1,
+      "meeting": 0.5,
+      "memo": 0.5,
+      "research": 2,
+      "data": 0.5,
+      "code": 8,
+      "agent": 2,
+      "form": 0
+    }
+  },
+  {
+    "id": "ops",
+    "name": "Case processors",
+    "hint": "High-volume forms and records",
+    "headcount": 0,
+    "perDay": {
+      "chat": 5,
+      "email": 5,
+      "doc": 0.5,
+      "meeting": 0,
+      "memo": 0,
+      "research": 1,
+      "data": 0,
+      "code": 0,
+      "agent": 0,
+      "form": 80
+    }
+  }
+]

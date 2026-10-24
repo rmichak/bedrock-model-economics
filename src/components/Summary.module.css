@@ -1,0 +1,279 @@
+.stub {
+  padding: 32px var(--sheet-pad) 28px;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 24px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.head h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.head p {
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+}
+
+/* Bill rows: a term column, then the line with its dot leader and amount */
+.items {
+  margin: 0;
+  padding-right: 36px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 152px minmax(0, 1fr);
+  gap: 0 20px;
+  padding: 18px 0 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+.item dt {
+  padding-top: 4px;
+  font: 600 13.5px/1.3 var(--f-body);
+  color: var(--ink-3);
+}
+
+.item dd {
+  margin: 0;
+  min-width: 0;
+}
+
+.line {
+  display: flex;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.main {
+  font: 700 19px/1.2 var(--f-display);
+  letter-spacing: -0.01em;
+  min-width: 0;
+}
+
+.leader {
+  flex: 1 1 24px;
+  min-width: 24px;
+  margin: 0 10px;
+  border-bottom: 2px dotted var(--rule-strong);
+  transform: translateY(-4px);
+}
+
+.amount {
+  font: 700 21px/1.1 var(--f-display);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.unit {
+  font: 500 13px/1 var(--f-body);
+  color: var(--ink-3);
+  margin-left: 2px;
+}
+
+.detail {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--ink-2);
+  max-width: 70ch;
+}
+
+/* Tear-off remittance stub, separated by a vertical perforation */
+.remit {
+  container-type: inline-size;
+  position: relative;
+  padding: 18px 0 0 36px;
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  background: linear-gradient(var(--rule-strong) 55%, transparent 0) left top / 2px 10px repeat-y;
+}
+
+.due {
+  margin: 0;
+  display: grid;
+}
+
+.due > div {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 0 16px;
+  align-items: baseline;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+}
+
+.due dt {
+  font: 600 13.5px/1.3 var(--f-body);
+  color: var(--ink-3);
+}
+
+.due dd {
+  margin: 0;
+  color: var(--ink-2);
+  min-width: 0;
+}
+
+.due > .dueRow {
+  padding: 2px 0 14px;
+  border-bottom: 3px double var(--ink);
+}
+
+.dueRow dt {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.dueAmount {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font: 800 clamp(2.5rem, 17cqi, 4rem) / 1.05 var(--f-display);
+  letter-spacing: -0.035em;
+  color: var(--ink) !important;
+}
+
+.dueUnit {
+  font: 600 17px/1 var(--f-body);
+  letter-spacing: 0;
+  color: var(--ink-2);
+}
+
+.dueNone {
+  font-size: 1.75rem;
+}
+
+.service {
+  font: 700 15.5px/1.3 var(--f-display);
+  color: var(--ink) !important;
+}
+
+.service span {
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.send {
+  display: grid;
+  gap: 12px;
+}
+
+.scan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  font: 500 11.5px/1.5 var(--f-data);
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+}
+
+.scan span {
+  white-space: nowrap;
+}
+
+.copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  background: var(--hl);
+  color: var(--hl-ink);
+  font: 700 14px/1 var(--f-body);
+  cursor: pointer;
+  transition: background-color 160ms var(--ease-out), transform 160ms var(--ease-out);
+}
+
+.copy:hover {
+  background: color-mix(in srgb, var(--hl) 82%, white);
+}
+
+.copy:active {
+  transform: translateY(1px);
+}
+
+.copy svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 980px) {
+  .body {
+    grid-template-columns: 1fr;
+  }
+
+  .items {
+    padding-right: 0;
+  }
+
+  .remit {
+    order: -1;
+    padding: 18px 0 24px;
+    margin-bottom: 4px;
+    background: linear-gradient(90deg, var(--rule-strong) 55%, transparent 0) left bottom / 10px 2px repeat-x;
+  }
+}
+
+@media (max-width: 640px) {
+  .stub {
+    padding-top: 24px;
+  }
+
+  .item {
+    grid-template-columns: 84px minmax(0, 1fr);
+    gap: 0 12px;
+  }
+
+  .item dt {
+    font-size: 12.5px;
+    padding-top: 3px;
+  }
+
+  .line {
+    flex-wrap: wrap;
+  }
+
+  .main {
+    flex: 1 1 100%;
+    font-size: 17px;
+  }
+
+  .detail {
+    font-size: 13.5px;
+  }
+
+  .leader {
+    display: none;
+  }
+
+  .amount {
+    margin-top: 4px;
+  }
+
+  .due > div {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 0 12px;
+  }
+}
