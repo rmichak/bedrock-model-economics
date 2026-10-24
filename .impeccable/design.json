@@ -1,0 +1,736 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-24T00:39:18.961Z",
+  "title": "Design System: Bedrock Model Economics",
+  "extensions": {
+    "colorMeta": {
+      "envelope-ink": {
+        "role": "primary",
+        "displayName": "Envelope Ink",
+        "canonical": "#14254d",
+        "cssVar": "--band",
+        "darkValue": "#15306b",
+        "tonalRamp": [
+          "oklch(15.0% 0.077 264.5)",
+          "oklch(26.0% 0.077 264.5)",
+          "oklch(37.0% 0.077 264.5)",
+          "oklch(49.0% 0.077 264.5)",
+          "oklch(60.0% 0.077 264.5)",
+          "oklch(72.0% 0.077 264.5)",
+          "oklch(84.0% 0.077 264.5)",
+          "oklch(95.0% 0.077 264.5)"
+        ]
+      },
+      "envelope-ink-glow": {
+        "role": "primary",
+        "displayName": "Envelope Glow",
+        "canonical": "#1d3366",
+        "cssVar": "--band-2",
+        "darkValue": "#22468f",
+        "tonalRamp": [
+          "oklch(15.0% 0.094 264.4)",
+          "oklch(26.0% 0.094 264.4)",
+          "oklch(37.0% 0.094 264.4)",
+          "oklch(49.0% 0.094 264.4)",
+          "oklch(60.0% 0.094 264.4)",
+          "oklch(72.0% 0.094 264.4)",
+          "oklch(84.0% 0.094 264.4)",
+          "oklch(95.0% 0.094 264.4)"
+        ]
+      },
+      "on-envelope": {
+        "role": "primary",
+        "displayName": "On Envelope",
+        "canonical": "#ffffff",
+        "cssVar": "--on-band",
+        "darkValue": "#ffffff",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 0)",
+          "oklch(26.0% 0.000 0)",
+          "oklch(37.0% 0.000 0)",
+          "oklch(49.0% 0.000 0)",
+          "oklch(60.0% 0.000 0)",
+          "oklch(72.0% 0.000 0)",
+          "oklch(84.0% 0.000 0)",
+          "oklch(95.0% 0.000 0)"
+        ]
+      },
+      "on-envelope-muted": {
+        "role": "primary",
+        "displayName": "On Envelope Muted",
+        "canonical": "#bcc7e2",
+        "cssVar": "--on-band-2",
+        "darkValue": "#a9b6d6",
+        "tonalRamp": [
+          "oklch(15.0% 0.040 267.9)",
+          "oklch(26.0% 0.040 267.9)",
+          "oklch(37.0% 0.040 267.9)",
+          "oklch(49.0% 0.040 267.9)",
+          "oklch(60.0% 0.040 267.9)",
+          "oklch(72.0% 0.040 267.9)",
+          "oklch(84.0% 0.040 267.9)",
+          "oklch(95.0% 0.040 267.9)"
+        ]
+      },
+      "highlighter": {
+        "role": "secondary",
+        "displayName": "Highlighter",
+        "canonical": "#ffe14a",
+        "cssVar": "--hl",
+        "darkValue": "#f6d74a",
+        "tonalRamp": [
+          "oklch(15.0% 0.120 97.6)",
+          "oklch(26.0% 0.142 97.6)",
+          "oklch(37.0% 0.164 97.6)",
+          "oklch(49.0% 0.165 97.6)",
+          "oklch(60.0% 0.165 97.6)",
+          "oklch(72.0% 0.165 97.6)",
+          "oklch(84.0% 0.142 97.6)",
+          "oklch(95.0% 0.120 97.6)"
+        ]
+      },
+      "highlighter-ink": {
+        "role": "secondary",
+        "displayName": "Highlighter Ink",
+        "canonical": "#191400",
+        "cssVar": "--hl-ink",
+        "darkValue": "#151100",
+        "tonalRamp": [
+          "oklch(15.0% 0.040 97.7)",
+          "oklch(26.0% 0.040 97.7)",
+          "oklch(37.0% 0.040 97.7)",
+          "oklch(49.0% 0.040 97.7)",
+          "oklch(60.0% 0.040 97.7)",
+          "oklch(72.0% 0.040 97.7)",
+          "oklch(84.0% 0.040 97.7)",
+          "oklch(95.0% 0.040 97.7)"
+        ]
+      },
+      "focus-blue": {
+        "role": "neutral",
+        "displayName": "Focus Blue",
+        "canonical": "#2a5bd7",
+        "cssVar": "--accent",
+        "darkValue": "#7ea2ff",
+        "tonalRamp": [
+          "oklch(15.0% 0.120 264.2)",
+          "oklch(26.0% 0.142 264.2)",
+          "oklch(37.0% 0.164 264.2)",
+          "oklch(49.0% 0.188 264.2)",
+          "oklch(60.0% 0.190 264.2)",
+          "oklch(72.0% 0.166 264.2)",
+          "oklch(84.0% 0.142 264.2)",
+          "oklch(95.0% 0.120 264.2)"
+        ]
+      },
+      "link-blue": {
+        "role": "neutral",
+        "displayName": "Link Blue",
+        "canonical": "#2450c8",
+        "cssVar": "--link",
+        "darkValue": "#92b1ff",
+        "tonalRamp": [
+          "oklch(15.0% 0.120 264.6)",
+          "oklch(26.0% 0.142 264.6)",
+          "oklch(37.0% 0.164 264.6)",
+          "oklch(49.0% 0.188 264.6)",
+          "oklch(60.0% 0.190 264.6)",
+          "oklch(72.0% 0.166 264.6)",
+          "oklch(84.0% 0.142 264.6)",
+          "oklch(95.0% 0.120 264.6)"
+        ]
+      },
+      "series-closed": {
+        "role": "tertiary",
+        "displayName": "Closed Blue",
+        "canonical": "#2a78d6",
+        "cssVar": "--s-closed",
+        "darkValue": "#3987e5",
+        "tonalRamp": [
+          "oklch(15.0% 0.120 255.5)",
+          "oklch(26.0% 0.142 255.5)",
+          "oklch(37.0% 0.163 255.5)",
+          "oklch(49.0% 0.163 255.5)",
+          "oklch(60.0% 0.163 255.5)",
+          "oklch(72.0% 0.163 255.5)",
+          "oklch(84.0% 0.142 255.5)",
+          "oklch(95.0% 0.120 255.5)"
+        ]
+      },
+      "series-open": {
+        "role": "tertiary",
+        "displayName": "Open Orange",
+        "canonical": "#eb6834",
+        "cssVar": "--s-open",
+        "darkValue": "#e2662f",
+        "tonalRamp": [
+          "oklch(15.0% 0.120 40.6)",
+          "oklch(26.0% 0.142 40.6)",
+          "oklch(37.0% 0.164 40.6)",
+          "oklch(49.0% 0.175 40.6)",
+          "oklch(60.0% 0.175 40.6)",
+          "oklch(72.0% 0.166 40.6)",
+          "oklch(84.0% 0.142 40.6)",
+          "oklch(95.0% 0.120 40.6)"
+        ]
+      },
+      "series-local": {
+        "role": "tertiary",
+        "displayName": "On-Prem Green",
+        "canonical": "#1baf7a",
+        "cssVar": "--s-local",
+        "darkValue": "#20b07f",
+        "tonalRamp": [
+          "oklch(15.0% 0.120 162.1)",
+          "oklch(26.0% 0.141 162.1)",
+          "oklch(37.0% 0.141 162.1)",
+          "oklch(49.0% 0.141 162.1)",
+          "oklch(60.0% 0.141 162.1)",
+          "oklch(72.0% 0.141 162.1)",
+          "oklch(84.0% 0.141 162.1)",
+          "oklch(95.0% 0.120 162.1)"
+        ]
+      },
+      "series-ref": {
+        "role": "tertiary",
+        "displayName": "Reference Grey",
+        "canonical": "#9aa1ad",
+        "cssVar": "--s-ref",
+        "darkValue": "#78808d",
+        "tonalRamp": [
+          "oklch(15.0% 0.019 261.3)",
+          "oklch(26.0% 0.019 261.3)",
+          "oklch(37.0% 0.019 261.3)",
+          "oklch(49.0% 0.019 261.3)",
+          "oklch(60.0% 0.019 261.3)",
+          "oklch(72.0% 0.019 261.3)",
+          "oklch(84.0% 0.019 261.3)",
+          "oklch(95.0% 0.019 261.3)"
+        ]
+      },
+      "desk": {
+        "role": "neutral",
+        "displayName": "Desk",
+        "canonical": "#e6e9ee",
+        "cssVar": "--desk",
+        "darkValue": "#090c12",
+        "tonalRamp": [
+          "oklch(15.0% 0.007 260.7)",
+          "oklch(26.0% 0.007 260.7)",
+          "oklch(37.0% 0.007 260.7)",
+          "oklch(49.0% 0.007 260.7)",
+          "oklch(60.0% 0.007 260.7)",
+          "oklch(72.0% 0.007 260.7)",
+          "oklch(84.0% 0.007 260.7)",
+          "oklch(95.0% 0.007 260.7)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "cssVar": "--paper",
+        "darkValue": "#121823",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 0)",
+          "oklch(26.0% 0.000 0)",
+          "oklch(37.0% 0.000 0)",
+          "oklch(49.0% 0.000 0)",
+          "oklch(60.0% 0.000 0)",
+          "oklch(72.0% 0.000 0)",
+          "oklch(84.0% 0.000 0)",
+          "oklch(95.0% 0.000 0)"
+        ]
+      },
+      "paper-recessed": {
+        "role": "neutral",
+        "displayName": "Recessed Paper",
+        "canonical": "#f3f5f8",
+        "cssVar": "--paper-2",
+        "darkValue": "#0d121b",
+        "tonalRamp": [
+          "oklch(15.0% 0.005 258.3)",
+          "oklch(26.0% 0.005 258.3)",
+          "oklch(37.0% 0.005 258.3)",
+          "oklch(49.0% 0.005 258.3)",
+          "oklch(60.0% 0.005 258.3)",
+          "oklch(72.0% 0.005 258.3)",
+          "oklch(84.0% 0.005 258.3)",
+          "oklch(95.0% 0.005 258.3)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0f1728",
+        "cssVar": "--ink",
+        "darkValue": "#edf1f7",
+        "tonalRamp": [
+          "oklch(15.0% 0.036 264.3)",
+          "oklch(26.0% 0.036 264.3)",
+          "oklch(37.0% 0.036 264.3)",
+          "oklch(49.0% 0.036 264.3)",
+          "oklch(60.0% 0.036 264.3)",
+          "oklch(72.0% 0.036 264.3)",
+          "oklch(84.0% 0.036 264.3)",
+          "oklch(95.0% 0.036 264.3)"
+        ]
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "Ink Secondary",
+        "canonical": "#465068",
+        "cssVar": "--ink-2",
+        "darkValue": "#b2bccc",
+        "tonalRamp": [
+          "oklch(15.0% 0.042 267.0)",
+          "oklch(26.0% 0.042 267.0)",
+          "oklch(37.0% 0.042 267.0)",
+          "oklch(49.0% 0.042 267.0)",
+          "oklch(60.0% 0.042 267.0)",
+          "oklch(72.0% 0.042 267.0)",
+          "oklch(84.0% 0.042 267.0)",
+          "oklch(95.0% 0.042 267.0)"
+        ]
+      },
+      "ink-tertiary": {
+        "role": "neutral",
+        "displayName": "Ink Tertiary",
+        "canonical": "#626b80",
+        "cssVar": "--ink-3",
+        "darkValue": "#8a95a8",
+        "tonalRamp": [
+          "oklch(15.0% 0.035 266.9)",
+          "oklch(26.0% 0.035 266.9)",
+          "oklch(37.0% 0.035 266.9)",
+          "oklch(49.0% 0.035 266.9)",
+          "oklch(60.0% 0.035 266.9)",
+          "oklch(72.0% 0.035 266.9)",
+          "oklch(84.0% 0.035 266.9)",
+          "oklch(95.0% 0.035 266.9)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#dbe0e8",
+        "cssVar": "--rule",
+        "darkValue": "#243045",
+        "tonalRamp": [
+          "oklch(15.0% 0.012 259.8)",
+          "oklch(26.0% 0.012 259.8)",
+          "oklch(37.0% 0.012 259.8)",
+          "oklch(49.0% 0.012 259.8)",
+          "oklch(60.0% 0.012 259.8)",
+          "oklch(72.0% 0.012 259.8)",
+          "oklch(84.0% 0.012 259.8)",
+          "oklch(95.0% 0.012 259.8)"
+        ]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Rule Strong",
+        "canonical": "#b6bfcd",
+        "cssVar": "--rule-strong",
+        "darkValue": "#35425a",
+        "tonalRamp": [
+          "oklch(15.0% 0.022 259.2)",
+          "oklch(26.0% 0.022 259.2)",
+          "oklch(37.0% 0.022 259.2)",
+          "oklch(49.0% 0.022 259.2)",
+          "oklch(60.0% 0.022 259.2)",
+          "oklch(72.0% 0.022 259.2)",
+          "oklch(84.0% 0.022 259.2)",
+          "oklch(95.0% 0.022 259.2)"
+        ]
+      },
+      "grid-line": {
+        "role": "neutral",
+        "displayName": "Grid Line",
+        "canonical": "#edf0f4",
+        "cssVar": "--grid",
+        "darkValue": "#1a2232",
+        "tonalRamp": [
+          "oklch(15.0% 0.006 255.5)",
+          "oklch(26.0% 0.006 255.5)",
+          "oklch(37.0% 0.006 255.5)",
+          "oklch(49.0% 0.006 255.5)",
+          "oklch(60.0% 0.006 255.5)",
+          "oklch(72.0% 0.006 255.5)",
+          "oklch(84.0% 0.006 255.5)",
+          "oklch(95.0% 0.006 255.5)"
+        ]
+      },
+      "flag": {
+        "role": "neutral",
+        "displayName": "Flag Red",
+        "canonical": "#b42318",
+        "cssVar": "--flag",
+        "darkValue": "#ff8a80",
+        "tonalRamp": [
+          "oklch(15.0% 0.120 29.5)",
+          "oklch(26.0% 0.142 29.5)",
+          "oklch(37.0% 0.164 29.5)",
+          "oklch(49.0% 0.182 29.5)",
+          "oklch(60.0% 0.182 29.5)",
+          "oklch(72.0% 0.166 29.5)",
+          "oklch(84.0% 0.142 29.5)",
+          "oklch(95.0% 0.120 29.5)"
+        ]
+      },
+      "flag-bg": {
+        "role": "neutral",
+        "displayName": "Flag Tint",
+        "canonical": "#fdecea",
+        "cssVar": "--flag-bg",
+        "darkValue": "#3a1714",
+        "tonalRamp": [
+          "oklch(15.0% 0.019 25.6)",
+          "oklch(26.0% 0.019 25.6)",
+          "oklch(37.0% 0.019 25.6)",
+          "oklch(49.0% 0.019 25.6)",
+          "oklch(60.0% 0.019 25.6)",
+          "oklch(72.0% 0.019 25.6)",
+          "oklch(84.0% 0.019 25.6)",
+          "oklch(95.0% 0.019 25.6)"
+        ]
+      },
+      "ok": {
+        "role": "neutral",
+        "displayName": "Authorized Green",
+        "canonical": "#18794e",
+        "cssVar": "--ok",
+        "darkValue": "#4cc38a",
+        "tonalRamp": [
+          "oklch(15.0% 0.110 158.4)",
+          "oklch(26.0% 0.110 158.4)",
+          "oklch(37.0% 0.110 158.4)",
+          "oklch(49.0% 0.110 158.4)",
+          "oklch(60.0% 0.110 158.4)",
+          "oklch(72.0% 0.110 158.4)",
+          "oklch(84.0% 0.110 158.4)",
+          "oklch(95.0% 0.110 158.4)"
+        ]
+      },
+      "ok-bg": {
+        "role": "neutral",
+        "displayName": "Authorized Tint",
+        "canonical": "#e6f4ec",
+        "cssVar": "--ok-bg",
+        "darkValue": "#12291d",
+        "tonalRamp": [
+          "oklch(15.0% 0.018 161.1)",
+          "oklch(26.0% 0.018 161.1)",
+          "oklch(37.0% 0.018 161.1)",
+          "oklch(49.0% 0.018 161.1)",
+          "oklch(60.0% 0.018 161.1)",
+          "oklch(72.0% 0.018 161.1)",
+          "oklch(84.0% 0.018 161.1)",
+          "oklch(95.0% 0.018 161.1)"
+        ]
+      },
+      "warn": {
+        "role": "neutral",
+        "displayName": "Caveat Amber",
+        "canonical": "#8a4b00",
+        "cssVar": "--warn",
+        "darkValue": "#f0b35a",
+        "tonalRamp": [
+          "oklch(15.0% 0.112 59.9)",
+          "oklch(26.0% 0.112 59.9)",
+          "oklch(37.0% 0.112 59.9)",
+          "oklch(49.0% 0.112 59.9)",
+          "oklch(60.0% 0.112 59.9)",
+          "oklch(72.0% 0.112 59.9)",
+          "oklch(84.0% 0.112 59.9)",
+          "oklch(95.0% 0.112 59.9)"
+        ]
+      },
+      "warn-bg": {
+        "role": "neutral",
+        "displayName": "Caveat Tint",
+        "canonical": "#fff4e0",
+        "cssVar": "--warn-bg",
+        "darkValue": "#2e2414",
+        "tonalRamp": [
+          "oklch(15.0% 0.029 82.6)",
+          "oklch(26.0% 0.029 82.6)",
+          "oklch(37.0% 0.029 82.6)",
+          "oklch(49.0% 0.029 82.6)",
+          "oklch(60.0% 0.029 82.6)",
+          "oklch(72.0% 0.029 82.6)",
+          "oklch(84.0% 0.029 82.6)",
+          "oklch(95.0% 0.029 82.6)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The single question headline in the envelope band; 2.6rem under 900px, 2.05rem on phones."
+      },
+      "amount-due": {
+        "displayName": "Amount Due",
+        "purpose": "The highlighted answer figure in the remittance stub, container-sized."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles on a 2px ink rule."
+      },
+      "title": {
+        "displayName": "Line Item",
+        "purpose": "Bill-row line items (19px) and amounts (21px)."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Band intro paragraph, max 66ch, on-envelope-muted."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "Section descriptions and bill-row detail lines, 70-76ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Term columns, field labels, button text; sentence case."
+      },
+      "hint": {
+        "displayName": "Hint",
+        "purpose": "Field hints, table sub-lines, units."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "Table figures, meter readings, chips (11px)."
+      },
+      "ocr-line": {
+        "displayName": "OCR Line",
+        "purpose": "The scenario-encoding scan line on the remittance stub only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-sheet",
+        "value": "0 1px 2px rgb(15 23 40 / 0.06), 0 18px 40px -16px rgb(15 23 40 / 0.28)",
+        "darkValue": "0 1px 2px rgb(0 0 0 / 0.4), 0 24px 48px -18px rgb(0 0 0 / 0.75)",
+        "purpose": "The statement sheet resting on band and desk."
+      },
+      {
+        "name": "shadow-pop",
+        "value": "0 2px 4px rgb(15 23 40 / 0.08), 0 14px 30px -10px rgb(15 23 40 / 0.35)",
+        "darkValue": "0 2px 4px rgb(0 0 0 / 0.4), 0 16px 36px -10px rgb(0 0 0 / 0.7)",
+        "purpose": "Sticky summary bar and chart tooltip."
+      },
+      {
+        "name": "focus-glow",
+        "value": "0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent)",
+        "purpose": "Field and stepper focus."
+      },
+      {
+        "name": "register-window",
+        "value": "0 0 0 1px rgb(255 255 255 / 0.08), inset 0 0.18em 0.2em -0.1em rgb(0 0 0 / 0.55), inset 0 -0.18em 0.2em -0.1em rgb(0 0 0 / 0.55)",
+        "purpose": "Recessed counter windows of the on-prem meter register."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The single easing for all transitions."
+      },
+      {
+        "name": "state",
+        "value": "160ms",
+        "purpose": "Hover, focus, press and selection changes (140ms for tick boxes and stepper cells)."
+      },
+      {
+        "name": "sticky-slide",
+        "value": "320ms",
+        "purpose": "Sticky summary bar sliding down from the top."
+      },
+      {
+        "name": "meter-roll",
+        "value": "700ms",
+        "purpose": "Digit wheels rolling to a new figure."
+      },
+      {
+        "name": "ribbon-morph",
+        "value": "900ms",
+        "purpose": "Guilloché weave morphing to the new scenario seed (CSS d transition)."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0ms",
+        "purpose": "All durations zeroed under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sheet-inset",
+        "value": "1280px"
+      },
+      {
+        "name": "sticky-header-table",
+        "value": "1100px (min)"
+      },
+      {
+        "name": "single-column",
+        "value": "1000px"
+      },
+      {
+        "name": "headline-step",
+        "value": "900px"
+      },
+      {
+        "name": "sticky-secondary",
+        "value": "860px"
+      },
+      {
+        "name": "phone",
+        "value": "640px"
+      },
+      {
+        "name": "sticky-compact",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Button",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Default printed-form button for secondary actions on the sheet.",
+      "html": "<button class=\"ds-btn\">Add task</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:36px;padding:0 14px;border-radius:6px;font:600 13.5px/1 var(--f-body, \"Public Sans\", sans-serif);cursor:pointer;white-space:nowrap;transition:background-color 160ms cubic-bezier(0.16,1,0.3,1),border-color 160ms cubic-bezier(0.16,1,0.3,1),transform 160ms cubic-bezier(0.16,1,0.3,1);border:1px solid var(--rule-strong, #b6bfcd);background:var(--paper, #fff);color:var(--ink, #0f1728);}.ds-btn:hover{border-color:var(--ink-2, #465068);background:var(--paper-2, #f3f5f8);}.ds-btn:active{transform:translateY(1px);}.ds-btn:focus-visible{outline:2px solid var(--accent, #2a5bd7);outline-offset:2px;}"
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ink-filled button for the main action of a control group.",
+      "html": "<button class=\"ds-btn-primary\">Apply</button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:36px;padding:0 14px;border-radius:6px;font:600 13.5px/1 var(--f-body, \"Public Sans\", sans-serif);cursor:pointer;white-space:nowrap;transition:background-color 160ms cubic-bezier(0.16,1,0.3,1),border-color 160ms cubic-bezier(0.16,1,0.3,1),transform 160ms cubic-bezier(0.16,1,0.3,1);border:1px solid var(--ink, #0f1728);background:var(--ink, #0f1728);color:var(--paper, #fff);}.ds-btn-primary:hover{background:var(--ink-2, #465068);border-color:var(--ink-2, #465068);}.ds-btn-primary:active{transform:translateY(1px);}.ds-btn-primary:focus-visible{outline:2px solid var(--accent, #2a5bd7);outline-offset:2px;}"
+    },
+    {
+      "name": "Remit Button",
+      "kind": "button",
+      "refersTo": "button-remit",
+      "description": "Highlighter copy-link action; one per remittance stub.",
+      "html": "<button class=\"ds-btn-remit\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71\"/><path d=\"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71\"/></svg>Copy link to this scenario</button>",
+      "css": ".ds-btn-remit{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 16px;border:1px solid var(--ink, #0f1728);border-radius:6px;background:var(--hl, #ffe14a);color:var(--hl-ink, #191400);font:700 14px/1 var(--f-body, \"Public Sans\", sans-serif);cursor:pointer;transition:background-color 160ms cubic-bezier(0.16,1,0.3,1),transform 160ms cubic-bezier(0.16,1,0.3,1);}.ds-btn-remit:hover{background:color-mix(in srgb, var(--hl, #ffe14a) 82%, white);}.ds-btn-remit:active{transform:translateY(1px);}.ds-btn-remit:focus-visible{outline:2px solid var(--accent, #2a5bd7);outline-offset:2px;}"
+    },
+    {
+      "name": "Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Number and select input with tabular figures and a focus glow.",
+      "html": "<label class=\"ds-fieldwrap\"><span class=\"ds-label\">People on staff</span><input class=\"ds-field\" type=\"text\" value=\"60\"><span class=\"ds-hint\">Everyone who could use the assistant.</span></label>",
+      "css": ".ds-fieldwrap{display:grid;gap:6px;max-width:240px;}.ds-label{font:600 13px/1.3 var(--f-body, \"Public Sans\", sans-serif);color:var(--ink-2, #465068);}.ds-hint{font:400 12.5px/1.45 var(--f-body, \"Public Sans\", sans-serif);color:var(--ink-3, #626b80);}.ds-field{min-height:36px;padding:6px 10px;border:1px solid var(--rule-strong, #b6bfcd);border-radius:6px;background:var(--paper, #fff);color:var(--ink, #0f1728);font:500 14px/1.2 var(--f-body, \"Public Sans\", sans-serif);font-variant-numeric:tabular-nums;transition:border-color 160ms cubic-bezier(0.16,1,0.3,1),box-shadow 160ms cubic-bezier(0.16,1,0.3,1);}.ds-field:hover{border-color:var(--ink-3, #626b80);}.ds-field:focus-visible{outline:none;border-color:var(--accent, #2a5bd7);box-shadow:0 0 0 3px color-mix(in srgb, var(--accent, #2a5bd7) 25%, transparent);}"
+    },
+    {
+      "name": "Segmented Rate Plan",
+      "kind": "chip",
+      "refersTo": "segment-selected",
+      "description": "Radio group styled as rate-plan boxes; checked option fills ink.",
+      "html": "<div class=\"ds-seg\" role=\"radiogroup\"><label class=\"ds-seg-opt\"><input type=\"radio\" name=\"ds-p\" checked><span>Light<small>5/day</small></span></label><label class=\"ds-seg-opt\"><input type=\"radio\" name=\"ds-p\"><span>Typical<small>12/day</small></span></label><label class=\"ds-seg-opt\"><input type=\"radio\" name=\"ds-p\"><span>Heavy<small>30/day</small></span></label></div>",
+      "css": ".ds-seg{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:2px;padding:2px;border:1px solid var(--rule-strong, #b6bfcd);border-radius:6px;background:var(--paper, #fff);max-width:320px;}.ds-seg-opt{position:relative;display:grid;cursor:pointer;}.ds-seg-opt input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;}.ds-seg-opt span{display:grid;place-content:center;text-align:center;min-height:34px;padding:4px 6px;border-radius:4px;font:600 13px/1.15 var(--f-body, \"Public Sans\", sans-serif);color:var(--ink-2, #465068);transition:background-color 160ms cubic-bezier(0.16,1,0.3,1),color 160ms cubic-bezier(0.16,1,0.3,1);}.ds-seg-opt small{display:block;margin-top:2px;font:500 11px/1.2 var(--f-data, \"IBM Plex Mono\", monospace);opacity:.75;}.ds-seg-opt:hover span{background:var(--paper-2, #f3f5f8);color:var(--ink, #0f1728);}.ds-seg-opt input:checked + span{background:var(--ink, #0f1728);color:var(--paper, #fff);}.ds-seg-opt input:focus-visible + span{outline:2px solid var(--accent, #2a5bd7);outline-offset:1px;}"
+    },
+    {
+      "name": "Chips",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Mono pill tags for authorization, origin and estimate status.",
+      "html": "<span class=\"ds-chip\">128K ctx</span> <span class=\"ds-chip ds-chip-gov\">GovCloud</span> <span class=\"ds-chip ds-chip-flag\">CN origin</span> <span class=\"ds-chip ds-chip-est\">est.</span>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;gap:4px;padding:4px 7px;border-radius:999px;border:1px solid var(--rule-strong, #b6bfcd);color:var(--ink-2, #465068);font:500 11px/1 var(--f-data, \"IBM Plex Mono\", monospace);letter-spacing:.01em;white-space:nowrap;}.ds-chip-gov{background:var(--ok-bg, #e6f4ec);color:var(--ok, #18794e);border-color:transparent;}.ds-chip-flag{background:var(--flag-bg, #fdecea);color:var(--flag, #b42318);border-color:transparent;}.ds-chip-est{border-style:dashed;}"
+    },
+    {
+      "name": "Bill Row",
+      "kind": "custom",
+      "refersTo": "title",
+      "description": "Term column, line item, dotted leader and right-set amount.",
+      "html": "<dl class=\"ds-bill\"><div class=\"ds-bill-row\"><dt>Highest quality</dt><dd><div class=\"ds-bill-line\"><span class=\"ds-bill-main\">Claude Opus 5.5 · 57.6</span><span class=\"ds-bill-leader\"></span><span class=\"ds-bill-amt\">$1,861<span class=\"ds-bill-unit\">/mo</span></span></div><p class=\"ds-bill-detail\">The top-scoring model in view: $51.69 per active user a month.</p></dd></div></dl>",
+      "css": ".ds-bill{margin:0;max-width:720px;}.ds-bill-row{display:grid;grid-template-columns:152px minmax(0,1fr);gap:0 20px;padding:18px 0 16px;border-bottom:1px solid var(--rule, #dbe0e8);}.ds-bill-row dt{padding-top:4px;font:600 13.5px/1.3 var(--f-body, \"Public Sans\", sans-serif);color:var(--ink-3, #626b80);}.ds-bill-row dd{margin:0;min-width:0;}.ds-bill-line{display:flex;align-items:baseline;}.ds-bill-main{font:700 19px/1.2 var(--f-display, \"Schibsted Grotesk\", sans-serif);letter-spacing:-.01em;color:var(--ink, #0f1728);}.ds-bill-leader{flex:1 1 24px;min-width:24px;margin:0 10px;border-bottom:2px dotted var(--rule-strong, #b6bfcd);transform:translateY(-4px);}.ds-bill-amt{font:700 21px/1.1 var(--f-display, \"Schibsted Grotesk\", sans-serif);font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink, #0f1728);}.ds-bill-unit{font:500 13px/1 var(--f-body, \"Public Sans\", sans-serif);color:var(--ink-3, #626b80);margin-left:2px;}.ds-bill-detail{margin:6px 0 0;font:400 14px/1.55 var(--f-body, \"Public Sans\", sans-serif);color:var(--ink-2, #465068);}"
+    },
+    {
+      "name": "Amount Due",
+      "kind": "custom",
+      "refersTo": "amount-due",
+      "description": "The highlighted figure closed by a double rule, with the OCR scan line.",
+      "html": "<div class=\"ds-due\"><div class=\"ds-due-row\"><span class=\"ds-due-term\">Amount due</span><span class=\"ds-due-amt\"><span class=\"ds-hl\">$930</span><span class=\"ds-due-unit\">/mo</span></span></div><div class=\"ds-ocr\">SCN 40/10/10/0 ACT60 WD21 STD C1 › 0000930</div></div>",
+      "css": ".ds-due{max-width:400px;display:grid;gap:14px;}.ds-due-row{display:grid;grid-template-columns:84px minmax(0,1fr);gap:0 16px;align-items:baseline;padding:2px 0 14px;border-bottom:3px double var(--ink, #0f1728);}.ds-due-term{font:700 13.5px/1.3 var(--f-body, \"Public Sans\", sans-serif);color:var(--ink, #0f1728);}.ds-due-amt{display:flex;align-items:baseline;gap:6px;font:800 3.4rem/1.05 var(--f-display, \"Schibsted Grotesk\", sans-serif);letter-spacing:-.035em;color:var(--ink, #0f1728);}.ds-due-unit{font:600 17px/1 var(--f-body, \"Public Sans\", sans-serif);letter-spacing:0;color:var(--ink-2, #465068);}.ds-hl{position:relative;z-index:0;color:var(--hl-ink, #191400);white-space:nowrap;}.ds-hl::before{content:\"\";position:absolute;z-index:-1;inset:.12em -.14em .02em -.1em;background:var(--hl, #ffe14a);border-radius:.18em .5em .25em .6em;transform:rotate(-1.4deg) skewX(-8deg);}.ds-ocr{font:500 11.5px/1.5 var(--f-data, \"IBM Plex Mono\", monospace);letter-spacing:.12em;color:var(--ink-3, #626b80);}"
+    },
+    {
+      "name": "Perforation",
+      "kind": "custom",
+      "refersTo": "statement-sheet",
+      "description": "Dashed tear line with desk-coloured notches between sheet sections.",
+      "html": "<div class=\"ds-desk\"><div class=\"ds-sheet\"><p class=\"ds-sec\">Your team's monthly statement</p><div class=\"ds-perf\"></div><p class=\"ds-sec\">Compare every model</p></div></div>",
+      "css": ".ds-desk{background:var(--desk, #e6e9ee);padding:24px;}.ds-sheet{background:var(--paper, #fff);border-radius:6px;box-shadow:var(--shadow-sheet, 0 1px 2px rgb(15 23 40 / .06), 0 18px 40px -16px rgb(15 23 40 / .28));}.ds-sec{margin:0;padding:20px 40px;font:700 1.5rem/1.15 var(--f-display, \"Schibsted Grotesk\", sans-serif);letter-spacing:-.02em;color:var(--ink, #0f1728);}.ds-perf{position:relative;height:28px;}.ds-perf::before{content:\"\";position:absolute;left:22px;right:22px;top:50%;border-top:2px dashed var(--rule-strong, #b6bfcd);}.ds-perf::after{content:\"\";position:absolute;inset:0;background:radial-gradient(circle at 0 50%, var(--desk, #e6e9ee) 9px, transparent 9.5px),radial-gradient(circle at 100% 50%, var(--desk, #e6e9ee) 9px, transparent 9.5px);}"
+    },
+    {
+      "name": "Envelope Band",
+      "kind": "nav",
+      "refersTo": "button-band-ghost",
+      "description": "Navy masthead bar with wordmark, data date and ghost actions.",
+      "html": "<header class=\"ds-band\"><span class=\"ds-brand\">Bedrock Model Economics</span><span class=\"ds-asof\">Prices and scores as of Oct 23, 2026</span><button class=\"ds-ghost\">Reset to defaults</button></header>",
+      "css": ".ds-band{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding:18px 24px;background:radial-gradient(110% 120% at 88% 0%, var(--band-2, #1d3366), transparent 62%), var(--band, #14254d);color:var(--on-band, #fff);}.ds-brand{font:700 16px/1 var(--f-display, \"Schibsted Grotesk\", sans-serif);letter-spacing:-.01em;}.ds-asof{font:500 13px/1.2 var(--f-body, \"Public Sans\", sans-serif);color:var(--on-band-2, #bcc7e2);margin-right:auto;}.ds-ghost{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px;border-radius:6px;border:1px solid rgb(255 255 255 / .24);background:rgb(255 255 255 / .05);color:var(--on-band, #fff);font:600 13.5px/1 var(--f-body, \"Public Sans\", sans-serif);cursor:pointer;transition:background-color 160ms cubic-bezier(0.16,1,0.3,1),border-color 160ms cubic-bezier(0.16,1,0.3,1);}.ds-ghost:hover{background:rgb(255 255 255 / .12);border-color:rgb(255 255 255 / .45);}.ds-ghost:focus-visible{outline:2px solid var(--hl, #ffe14a);outline-offset:2px;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Itemized Statement",
+    "overview": "Every surface is a page of a utility bill. An envelope-ink navy band carries the wordmark, the data date and a guilloché security ribbon along its rule; a white statement sheet is pulled up out of that band and everything that matters is printed on it. Sections are torn apart by perforations, not boxed into cards. Facts are set as bill rows: a quiet term column on the left, the line item, a dotted leader, the amount flush right. The one figure the reader came for, the Amount due, is struck with a highlighter.\n\nThe system is dense and numerate, but calm. Colour is spent sparingly: navy for the envelope, ink on white paper for the statement, yellow highlighter for exactly the figure that matters, and four series inks whose meaning never changes. Depth is the physical stack of envelope, sheet and pop-overs, never decoration. Motion is mechanical: meter wheels roll to new numbers and the security weave morphs when the scenario changes.\n\nThe world rejects the category-default KPI-card dashboard under a gradient hero. No card grids, no glass, no gradient text.",
+    "keyCharacteristics": [
+      "Navy envelope band with a scenario-seeded guilloché ribbon; a white sheet overlaps it by 120px.",
+      "Perforated tear lines with punched edge notches separate sections; a vertical perforation tears off the remittance stub.",
+      "Bill rows with term column, dotted leader and right-set amount; totals closed by a double rule.",
+      "Highlighter yellow on the single amount that matters; it is also the colour of the one primary action on the stub.",
+      "Four fixed series inks: closed blue, open orange, on-prem green, reference grey.",
+      "Rolling meter-wheel numerals; counter-window registers for the on-prem meter."
+    ],
+    "rules": [
+      {
+        "name": "The One Highlighter Rule",
+        "body": "Highlighter yellow marks the single figure that answers the question (Amount due) and the one action that sends it onward. Never use it for a second figure, a series, or decoration other than the ribbon strand.",
+        "section": "colors"
+      },
+      {
+        "name": "The Fixed Inks Rule",
+        "body": "Closed blue, open orange, on-prem green and reference grey mean exactly those four categories everywhere: chart points, legend, ledger dots. Never reuse a series ink for status or emphasis.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Figures Rule",
+        "body": "Every figure that can change is set with tabular numerals (or in Plex Mono) so columns and rolling wheels never jitter. Punctuation inside rolling numbers stays proportional.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence-Case Labels Rule",
+        "body": "Labels and term columns are sentence-case Public Sans in ink-tertiary. Letter-spaced uppercase is reserved for nothing; the only tracked text is the OCR line.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper Stack Rule",
+        "body": "Only the sheet and things floating above it get shadows. Sections inside the sheet are separated by perforations and rules, never by raised cards.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** put new content on the statement sheet, separated from neighbours by a perforation, headed by a 1.5rem headline on a 2px ink rule.",
+      "**Do** set facts as bill rows (term column, line item, dotted leader, right-set amount) before reaching for tables or tiles.",
+      "**Do** close any total with a 3px double ink rule.",
+      "**Do** keep every changing figure in tabular numerals or Plex Mono, and roll it with the meter wheels.",
+      "**Do** keep the four series inks bound to closed / open / on-prem / reference in every chart, legend and dot.",
+      "**Do** use the 160ms `cubic-bezier(0.16, 1, 0.3, 1)` ease for state changes and honour reduced motion by zeroing durations."
+    ],
+    "donts": [
+      "**Don't** build KPI-card grids or a gradient hero; the band is an envelope, the content is a printed statement.",
+      "**Don't** apply highlighter yellow to more than the one figure that answers the question and its send action.",
+      "**Don't** add shadows to sections inside the sheet; only the sheet and floating layers (sticky bar, tooltip) cast one.",
+      "**Don't** use letter-spaced uppercase labels or eyebrows above headings; labels are sentence case in the term column.",
+      "**Don't** reuse a series ink for status; status uses the flag / ok / warn pairs."
+    ]
+  }
+}
